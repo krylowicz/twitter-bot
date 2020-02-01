@@ -24,6 +24,7 @@
   "homepage": "https://github.com/krylowicz/twitter-bot#readme",
   "dependencies": {
     "dotenv": "^8.2.0",
-    "oauth": "^0.9.15"
+    "oauth": "^0.9.15",
+    "twitter": "^1.7.1"
   }
 }
