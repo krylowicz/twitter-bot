@@ -1,4 +1,5 @@
 require("dotenv").config();
+const http = require('http');
 const fs = require("fs");
 const OAuth = require("oauth");
 
@@ -54,4 +55,6 @@ const fetchFollowers = () =>
 
 fetchFollowers();
 
-setInterval(fetchFollowers, 1000 * 60 * 60);
+setInterval(fetchFollowers, 1000 * 60 * 30);
+
+http.createServer((req, res) => res.end()).listen(process.env.PORT || 80 );
