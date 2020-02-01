@@ -1,0 +1,29 @@
+{
+  "name": "twitter-bot",
+  "version": "1.0.0",
+  "description": "node js bot that sends auto dm on follow",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krylowicz/twitter-bot.git"
+  },
+  "keywords": [
+    "twitter",
+    "bot",
+    "dm",
+    "follow"
+  ],
+  "author": "@krylowicz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/krylowicz/twitter-bot/issues"
+  },
+  "homepage": "https://github.com/krylowicz/twitter-bot#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "oauth": "^0.9.15"
+  }
+}
