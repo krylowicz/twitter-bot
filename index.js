@@ -22,34 +22,33 @@ const fetchFollowers = () =>
     (error, data) => {
       if (error) console.log(error);
       const { ids: newIDs } = JSON.parse(data);
-      const oldIDs = JSON.parse(fs.readFileSync("./followers.json"));
+      const oldIDs = JSON.parse(fs.readFileSync('./followers.json'));
       if (oldIDs) {
         const difference = diff(newIDs, oldIDs);
         for (let id of difference) {
           oauth.post(
-            "https://api.twitter.com/1.1/direct_messages/events/new.json",
+            'https://api.twitter.com/1.1/direct_messages/events/new.json',
             process.env.ACCESS_TOKEN,
             process.env.ACCESS_SECRET,
             JSON.stringify({
-              event: {
-                type: "message_create",
-                message_create: {
-                  target: {
-                    recipient_id: id
+              "event": {
+                "type": "message_create",
+                "message_create": {
+                  "target": {
+                    "recipient_id": id
                   },
-                  message_data: {
-                    text:
-                      "Thanks for following @bb_stem and becoming part of the network on Twitter. Our feed brings you all the latest news and updates about BBSTEM. If you wish to receive all the exclusive opportunities, sign up here: bbstem.co.uk"
+                  "message_data": {
+                    "text": "Thanks for following @bb_stem and becoming part of the network on Twitter. Our feed brings you all the latest news and updates about BBSTEM. If you wish to receive all the exclusive opportunities, sign up here: bbstem.co.uk"
                   }
                 }
               }
             }),
-            "application/json"
+            'application/json'
           );
           console.log(`message sent to ${id}`);
         }
       }
-      fs.writeFileSync("./followers.json", JSON.stringify(newIDs));
+      fs.writeFileSync('./followers.json', JSON.stringify(newIDs));
     }
   );
 
